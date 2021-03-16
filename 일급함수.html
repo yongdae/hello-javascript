@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>일급 함수</title>
+</head>
+<body>
+<script>
+  // 일급 함수란?
+  // 함수를 값으로 다룰수 있는 개념
+
+  var addition = function (number1, number2) {
+    return number1 + number2;
+  };
+
+  console.log(addition);
+  console.log(addition(1, 1));
+
+  var functional = addition;
+
+  console.log(functional);
+  console.log(functional(2, 2));
+
+  var functionalExecutor = function (fn) {
+    return fn();
+  };
+
+  console.log(functionalExecutor(function () {return 1;}));
+  console.log(functionalExecutor(function () {return 2;}));
+</script>
+</body>
+</html>
