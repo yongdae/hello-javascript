@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>함수형 프로그래밍</title>
+</head>
+<body>
+<script>
+  // 함수형(FP: Functional-Programming)이란?
+  // 함수의 개념을 가장 우선 순위로 정의하는 방법으로
+  // 모든 문제의 해결 방법을 함수들의 정의와 조합을 이용해 프로그래밍하는 기법입니다.
+
+  function start(car) {
+    car.power = true;
+    console.log('자동차 시동');
+  }
+
+  function moveTo(car, position) {
+    console.log(`자동차 이동 = 현재 위치: {${car.position}}`);
+
+    if (!car.power) {
+      console.log('자동차의 시동이 꺼져있습니다.');
+      return;
+    }
+
+    car.position += position;
+    console.log(`자동차 이동 = 이동 위치: {${car.position}}`);
+  }
+
+  const car = { power: false, position: 0 };
+  start(car);
+  moveTo(car, 10);
+</script>
+</body>
+</html>

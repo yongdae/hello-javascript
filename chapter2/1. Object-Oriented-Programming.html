@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>객체지향 프로그래밍</title>
+</head>
+<body>
+<script>
+  // 객체지향(OOP: Object-Oriented-Programming)이란?
+  // 프로그래밍하려는 대상을 하나의 객체(사물)로 정의하는 설계 방법으로
+  // 객체의 관점에서 구조를 정의하고 사용합니다.
+
+  function Car() {
+    this.power = false;
+    this.position = 0;
+  }
+
+  Car.prototype.start = function() {
+    this.power = true;
+    console.log('자동차 시동');
+  }
+
+  Car.prototype.moveTo = function(position) {
+    console.log(`자동차 이동 = 현재 위치: {${this.position}}`);
+
+    if (!this.power) {
+      console.log('자동차의 시동이 꺼져있습니다.');
+      return;
+    }
+
+    this.position = position;
+    console.log(`자동차 이동 = 이동 위치: {${this.position}}`);
+  }
+
+  const car = new Car();
+  car.start();
+  car.moveTo(10);
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>함수형 프로그래밍</title>
+</head>
+<body>
+<script>
+  function start(car) {
+    console.log('자동차 시동');
+
+    return { ...car, power: true };
+  }
+
+  function moveTo(car, position) {
+    console.log(`자동차 이동 = 현재 위치: {${car.position}}`);
+
+    if (!car.power) {
+      console.log('자동차의 시동이 꺼져있습니다.');
+      return;
+    }
+
+    const newPosition = car.position + position;
+    console.log(`자동차 이동 = 이동 위치: {${newPosition}}`);
+
+    return { ...car, position: newPosition };
+  }
+
+  let car = { power: false, position: 0 };
+  car = start(car);
+  car = moveTo(car, 10);
+</script>
+</body>
+</html>
