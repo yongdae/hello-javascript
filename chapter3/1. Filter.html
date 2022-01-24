@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>만들면서 배우는 filter 함수의 정의와 사용 방법</title>
+</head>
+<body>
+<script>
+  const users = [
+    { name: 'a', age: 22 },
+    { name: 'b', age: 21 },
+    { name: 'c', age: 19 },
+    { name: 'd', age: 30 },
+    { name: 'e', age: 34 },
+    { name: 'f', age: 31 },
+    { name: 'g', age: 20 },
+  ];
+
+  const result = [];
+
+  for (let i = 0; i < users.length; i++) {
+    const user = users[i];
+    if (user.age == 19) {
+      result.push(user);
+    }
+  }
+
+  console.log(result);
+
+  function _filter(array, predicate) {
+    const arrayLength = array == null ? 0 : array.length;
+    const result = [];
+
+    for (let i = 0; i < arrayLength; i++) {
+      const value = array[i];
+      if (predicate(value)) {
+        result.push(value);
+      }
+    }
+    return result;
+  }
+
+  console.log(_filter(users, user => user.age == 19));
+  console.log(_filter(users, user => user.age > 10));
+  console.log(_filter(users, user => user.age >= 20));
+
+  console.log(users.filter(user => user.age == 19));
+  console.log(users.filter(user => user.age > 10));
+  console.log(users.filter(user => user.age >= 20));
+
+  // 두 가지의 처리방법의 차이점은 무엇일까?
+  _filter(users, user => user.age == 19);
+  users.filter(user => user.age == 19);
+</script>
+</body>
+</html>
