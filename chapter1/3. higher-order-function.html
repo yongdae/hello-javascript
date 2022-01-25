@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>고차 함수</title>
+</head>
+<body>
+<script>
+  // 고차 함수란?
+  // 함수를 매개변수로 사용하거나
+  // 함수를 반환하는 함수 개념
+
+  const functionExecutor = function (fn) {
+    setTimeout(function () {
+      fn();
+    }, 10 * 1000);
+  };
+
+  functionExecutor(function () {console.log(1);});
+  functionExecutor(function () {console.log(2);});
+
+  const division = function (divisionValue) {
+    return function (value) {
+      return value / divisionValue;
+    };
+  };
+
+  const divisionBy10 = division(10);
+
+  console.log(divisionBy10(20));
+  console.log(divisionBy10(33));
+</script>
+</body>
+</html>
