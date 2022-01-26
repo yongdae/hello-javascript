@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>만들면서 배우는 Map 함수의 정의와 사용 방법</title>
+</head>
+<body>
+<script>
+  const users = [
+    { firstName: 'a', lastName: 'A' },
+    { firstName: 'b', lastName: 'B' },
+    { firstName: 'c', lastName: 'C' },
+    { firstName: 'd', lastName: 'D' },
+    { firstName: 'e', lastName: 'E' },
+    { firstName: 'f', lastName: 'F' },
+    { firstName: 'g', lastName: 'G' },
+  ];
+
+  const result = [];
+
+  for (let i = 0; i < users.length; i++) {
+    const user = users[i];
+    result.push(`${user.firstName}_${user.lastName}`);
+  }
+
+  console.log(result);
+
+  function _map(array, mapper) {
+    const arrayLength = array == null ? 0 : array.length;
+    const result = [];
+
+    for (let i = 0; i < arrayLength; i++) {
+      result.push(mapper(array[i]));
+    }
+    return result;
+  }
+
+  console.log(_map(users, user => `${user.firstName}_${user.lastName}`));
+
+  // 두 가지의 처리방법의 차이점은 무엇일까?
+  _map(users, user => `${user.firstName}_${user.lastName}`);
+  users.map(user => `${user.firstName}_${user.lastName}`);
+</script>
+</body>
+</html>
